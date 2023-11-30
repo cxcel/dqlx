@@ -3,7 +3,7 @@ package dqlx
 import (
 	"bytes"
 	"context"
-	"github.com/dgraph-io/dgo/v200"
+	"github.com/dgraph-io/dgo/v230"
 	"strings"
 )
 

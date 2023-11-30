@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/dgraph-io/dgo/v200"
+	"github.com/dgraph-io/dgo/v230"
 )
 
 // QueryBuilder represents the public API for building a secure dynamic Dgraph
