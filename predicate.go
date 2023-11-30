@@ -221,22 +221,19 @@ func EscapePredicate(field string) string {
 		predicate, alias, directive = parsePredicate(predicate)
 
 		if alias != "" {
-			alias = fmt.Sprintf("<%s>:", alias)
+			alias = fmt.Sprintf("%s:", alias)
 		}
 
-		return fmt.Sprintf("%s %s %s<%s>%s", varName, asKeyword, alias, predicate, directive)
+		return fmt.Sprintf("%s %s %s %s %s", varName, asKeyword, alias, predicate, directive)
 	}
 
 	field, alias, directive = parsePredicate(field)
 
 	if alias != "" {
-		alias = fmt.Sprintf("<%s>:", alias)
+		alias = fmt.Sprintf(" %s:", alias)
 	}
 
-	if strings.HasPrefix(field, "expand(") {
-		return fmt.Sprintf("%s%s%s", alias, field, directive)
-	}
-	return fmt.Sprintf("%s<%s>%s", alias, field, directive)
+	return fmt.Sprintf("%s %s %s", alias, field, directive)
 }
 
 func escapeSpecialChars(predicate string) string {

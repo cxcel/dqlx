@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	//"strings"
 
 	dgo "github.com/dgraph-io/dgo/v230"
 	"github.com/dgraph-io/dgo/v230/protos/api"
@@ -113,6 +114,8 @@ func (executor OperationExecutor) ExecuteMutations(ctx context.Context, mutation
 				return nil, err
 			}
 			condition = conditionDql
+			//condition = strings.ReplaceAll(conditionDql, "<", "")
+			//condition = strings.ReplaceAll(conditionDql, ">", "")
 		}
 
 		queries = append(queries, mutation.query)
